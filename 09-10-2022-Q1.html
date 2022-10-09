@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+    <style>
+      .toggle {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        height: 52px;
+        background-color: red;
+        border-radius: 30px;
+        border: 2px solid gray;
+      }
+
+      /* After slide changes */
+      .toggle:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: gray;
+        top: 1px;
+        left: 1px;
+        transition: all 0.5s;
+      }
+
+      /* Toggle text */
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+
+      /* Checkbox checked effect */
+      .checkbox:checked + .toggle::after {
+        left: 49px;
+      }
+
+      /* Checkbox checked toggle label bg color */
+      .checkbox:checked + .toggle {
+        background-color: green;
+      }
+
+      /* Checkbox vanished */
+      .checkbox {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <p>
+        <label>Text Field <input type="text" /></label>
+      </p>
+      <input id="demoInput" type="number" min="100" max="110" />
+      <button onclick="increment()">+</button>
+      <button onclick="decrement()">-</button>
+      <script>
+        function increment() {
+          document.getElementById("demoInput").stepUp();
+        }
+        function decrement() {
+          document.getElementById("demoInput").stepDown();
+        }
+      </script>
+
+      <div style="display: flex">
+        <p>
+          <select name="language">
+            <option value="indian">Indian</option>
+            <option value="nepali">Nepali</option>
+            <option value="others">Others</option>
+          </select>
+        </p>
+        <p>
+          <input
+            type="search"
+            id="query"
+            name="q"
+            placeholder="Search..."
+            aria-label="Search through site content"
+          />
+          <button class="ch">
+            <svg viewBox="0 0 1024 1024">
+              <path
+                class="path1"
+                d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"
+              ></path>
+            </svg>
+          </button>
+        </p>
+      </div>
+      <p>Text Area</p>
+
+      <textarea
+        id="w3review"
+        name="w3review"
+        rows="4"
+        cols="50"
+        placeholder="Text Area..."
+      >
+      </textarea>
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+      <ul style="list-style-type: none">
+        <li><input type="checkbox" name="language" value="hindi" />Hindi</li>
+      </ul>
+
+      <label
+        >Radio button
+        <input type="radio" name="gender" value="male" />
+      </label>
+      <input type="checkbox" id="switch" class="checkbox" />
+      <label for="switch" class="toggle">
+        <p>Switch</p>
+      </label>
+    </form>
+  </body>
+</html>
